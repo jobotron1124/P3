@@ -2,25 +2,20 @@
 include("C.php");
 
 if (isset($_POST['Enviar'])) {
-if(strlen($_POST)['Titulo'] >= 1 &&
-   strlen($_POST)['Imagen'] >= 1 &&
-   strlen($_POST)['Descripcion'] >= 1 &&
-   strlen($_POST)['Nombredelautor'] >= 1 &&
-   strlen($_POST)['FechadePublicacion'] >= 1 ){
+if(strlen($_POST['Titulo']) >= 1 && strlen($_POST['Imagen']) >= 1 && strlen($_POST['Descripcion']) >= 1 && strlen($_POST['Nombredelautor']) >= 1 && strlen($_POST['FechadePublicacion']) >= 1 ){
 
-    $Titulo = trim($_POST['Enviar']);
-    $Imagen = trim($_POST['Titulo']);
-    $Descripcion = trim($_POST['Imagen']);
-    $Nombredelautor = trim($_POST['Descripcion']);
-    $FechadePublicacion = trim($_POST['Nombredelautor']);
-    $fechareg = date("d/m/y");
-    $consulta = "INSERT INTO gt (titulo, descripcion,nombreautor,fecha) VALUES ('$Titulo','$Imagen',' $Descripcion','$Nombredelautor','  $FechadePublicacion')";
-    $resultado = mysqli_query ($conex,$consulta);
+    $Titulo = trim($_POST['Titulo']);
+    $Imagen = trim($_POST['Imagen']);
+    $Descripcion = trim($_POST['Descripcion']);
+    $Nombredelautor = trim($_POST['Nombredelautor']);
+    $FechadePublicacion = trim($_POST['FechadePublicacion']);
+
+    $consulta = "INSERT INTO se(titulo, imagen, descripcion, nombre del autor, fecha de publicacion) VALUES ('$Titulo','$Imagen',' $Descripcion',' $Nombredelautor','$FechadePublicacion')";
+    $resultado = mysqli_query($conex,$consulta);
 }
 if ($resultado) {
 	    	?> 
-	    	<h3>¡Te has inscripto correctamente! </h3>
-           <?php
+    		<button onclick="location.href='inicio.php'">Regresar</button>           <?php
 	    } else {
 	    	?> 
 	    	<h3>¡Ups ha ocurrido un error!</h3>
